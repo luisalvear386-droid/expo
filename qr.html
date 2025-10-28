@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>QR del Juego</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #333;
+        }
+        #qrcode {
+            padding: 30px;
+            background: white;
+            border: 5px solid #333;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escanea para jugar</h1>
+    <div id="qrcode"></div>
+    <p>¡Diviértete!</p>
+
+    <script>
+        const url = "https://luisalvear386-droid.github.io/expo/";
+        QRCode.toCanvas(
+            document.getElementById('qrcode'),
+            url,
+            { width: 400, color: { dark: "#000000", light: "#ffffff" } },
+            function (error) {
+                if (error) console.error(error);
+            }
+        );
+    </script>
+</body>
+</html>
