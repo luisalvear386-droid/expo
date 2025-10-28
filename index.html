@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Expo — Preguntas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Quiz Expo</h1>
+      <p class="lead">Elige una categoría y responde rápido. ¡Compite por el mejor puntaje!</p>
+    </header>
+
+    <section class="menu card" id="menu">
+      <div class="row">
+        <div>
+          <label>Selecciona categoría</label>
+          <div class="categories" id="categories">
+            <button class="cat active" data-cat="deportes">Deportes</button>
+            <button class="cat" data-cat="tecnologia">Tecnología</button>
+            <button class="cat" data-cat="historia">Historia</button>
+            <button class="cat" data-cat="general">General</button>
+          </div>
+        </div>
+        <div class="right">
+          <label>Tiempo por pregunta</label>
+          <select id="timePerQ">
+            <option value="10">10s</option>
+            <option value="15" selected>15s</option>
+            <option value="20">20s</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="startBtn" class="primary">Comenzar</button>
+        <button id="viewScores">Ver Top 5</button>
+      </div>
+    </section>
+
+    <section class="card" id="game" hidden>
+      <div class="game-top row">
+        <div class="muted">Categoría: <strong id="catLabel">—</strong></div>
+        <div class="muted">Pregunta <span id="qIndex">0</span>/<span id="qTotal">0</span></div>
+      </div>
+
+      <div class="question-area">
+        <div id="timer" class="timer">15</div>
+        <div id="questionText" class="question">Pregunta va aquí</div>
+        <div id="answers" class="answers"></div>
+      </div>
+
+      <div class="game-foot row">
+        <div class="muted">Puntaje: <strong id="score">0</strong></div>
+        <div>
+          <button id="nextBtn">Siguiente</button>
+          <button id="quitBtn">Salir</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="end" hidden>
+      <h2>¡Resultado!</h2>
+      <p>Puntaje final: <strong id="finalScore">0</strong></p>
+      <div class="row" style="align-items:center;gap:8px">
+        <input id="playerName" placeholder="Tu nombre para el ranking (opcional)" />
+        <button id="saveScore" class="primary">Guardar en Top 5</button>
+      </div>
+      <div style="margin-top:12px">
+        <button id="playAgain">Jugar otra vez</button>
+        <button id="backMenu">Volver al menú</button>
+      </div>
+    </section>
+
+    <section class="card" id="scoresCard" hidden>
+      <h2>Top 5 — Mejores Puntajes</h2>
+      <ul id="topList" class="scorelist"></ul>
+      <div style="margin-top:12px">
+        <button id="clearTop">Borrar Top</button>
+        <button id="closeTop">Cerrar</button>
+      </div>
+    </section>
+
+    <footer>Hecho para la exposición — responde rápido y diviértete.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
